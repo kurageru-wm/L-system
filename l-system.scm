@@ -17,8 +17,7 @@
 ;;; IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ;;;
 
-(define-module klib.l-system
-  (use klib.list)
+(define-module l-system
   (export <G>
           <V-symbol>
           add-rule!
@@ -29,7 +28,7 @@
           )
   )
 
-(select-module klib.l-system)
+(select-module l-system)
 
 
 (define-class <G> ()
@@ -112,4 +111,4 @@
           x))       
        l))
 
-(provide "klib/l-system")
+(provide "l-system")
