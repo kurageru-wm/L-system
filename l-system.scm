@@ -20,11 +20,12 @@
 (define-module l-system
   (export <G>
           <V-symbol>
-          add-rule!
           define-rule
           step
           v-list->list
+          v-list->n-list
           convert
+          n-of
           )
   )
 
@@ -44,10 +45,6 @@
   (set! (get self) (map (cut make <V-symbol> :symbol <>) (get self)))
   (set! (rules-of self) (apply compose (rules-of self)))
   )
-
-(define-method add-rule! ((g <G>) (rule <procedure>))
-  (push! (rules-of g) rule))
-
 
 ;; V-Symbol
 (define-class <V-symbol> ()
@@ -95,8 +92,8 @@
 (define-method v-list->list ((vl <list>))
   (map (cut symbol-of <>) vl)
   )
-;; (define-method v-list->n-list ((vl <list>))
-;;   (map (cut n-of <>) vl))
+(define-method v-list->n-list ((vl <list>))
+  (map (cut n-of <>) vl))
 
 
 (define-syntax convert
